@@ -131,7 +131,7 @@ body {
 }
 
 .gambar-arah{
-    background-image:url('arahh.png') ;
+    background-image:url('../arahh.png') ;
     display: flex;
     height: 50vh;
     width: auto;

@@ -1,5 +1,5 @@
 {% load static %}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> {% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +25,7 @@
         </div>
 
         <ul class="tulisan-navbar">
-            <li><a href="product.html">Product</a></li>
+            <li><a href="{% url 'product' %}">Product</a></li>
             <li><a href="joinassupplier.html">Join as Supplier</a></li>
             <li><a href="#">Expedition</a></li>
             <li><a href="#">Help</a></li>

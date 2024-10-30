@@ -111,3 +111,29 @@ body {
     text-decoration: none;
 }
 
+.input-group {
+    position: relative;
+}
+.input-group input[type="password"],
+.input-group input[type="email"] {
+    width: 100%;
+    padding-right: 2.5em; /* Spasi untuk ikon */
+}
+.show-password {
+    margin-top: 15px;
+    position: absolute;
+    font-size: 17px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0; /* Menghilangkan padding agar ukuran tidak berubah */
+}
+.show-password i {
+    font-size: 1em; /* Ukuran ikon tetap */
+    color: #333;
+}
+

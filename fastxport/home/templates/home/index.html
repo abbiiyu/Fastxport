@@ -1,3 +1,5 @@
+{% load static %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation Bar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            background-image:url({% static 'image/malem.jpg' %}) ;
+            background-size: cover;
+            height: 100vh;
+        }
+    </style>
+
 </head>
 <body>
-<div>
     <nav class="navbar">
 
         <div class="logo">
-            <img src="../logo.png" alt="Logo" />
+            <img src="{% static 'image/logo.png' %}" alt="Logo" />
         </div>
 
         <ul class="tulisan-navbar">
@@ -29,6 +38,7 @@
 
 
     </nav>
+
     <br><br><br><br>
 
     <h1 class="welcome">
@@ -60,18 +70,17 @@
         <p>Have a big target in business? <br>Join FastXPort to become a supplier that meets worldwide demand and is ready <br>to ship worldwide with a fast and safe guarantee</p>
         <br><br><br><br><br><br>
         <button href="#">Join as Supplier</button>
-        <img src="../tablet.png" alt="Tablet">
+        <img src="{% static 'image/tablet.png' %}" alt="Tablet" />
     </div>
-
     <div class="container">
-        <img src="../kapallaut.jpg" alt="kapallaut">
+
+        <img src="{% static 'image/kapallaut.jpg' %}" alt="kapallaut" />
     </div>
 
     <div class="more">
     <p>FastXPort provides delivery services with various types of transportation according to the <br> capacity of your goods and we have a guarantee that the goods will arrive safely</p>
     <button href="#" class="more-button">More</button>
     </div>
-
     <footer>
         <div class="kontainer">
             <div class="footer-content contact-section">
@@ -93,12 +102,8 @@
             <p>&copy; 2024 FastXport. All rights reserved</p>
         </div>
     </footer>
-    
 
-
-
-
-    
+ 
 </div>
 
 

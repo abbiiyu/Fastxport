@@ -18,3 +18,9 @@ def joinForm(request):
         'name': 'Halaman Product'
     }
     return render(request, 'product/joinform.html', context)
+
+def ekspedisi(request):
+    context = {
+        'name': 'Halaman Product'
+    }
+    return render(request, 'product/ekspedisi.html', context)

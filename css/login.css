@@ -27,6 +27,7 @@ body {
 
 .input-group {
     margin-bottom: 1.5rem;
+    
 }
 
 .input-group label {
@@ -53,7 +54,7 @@ body {
     cursor: pointer;
     position: absolute;
     right: 10px;
-    top: 40px;
+    top: 1000px;
     font-size: 1.2rem;
     color: #666;
 }
@@ -82,10 +83,6 @@ body {
     margin-top: 1rem;
 }
 
-.google-btn i{
-    
-
-}
 
 .divider {
     display: flex;
@@ -135,5 +132,6 @@ body {
 .show-password i {
     font-size: 1em; /* Ukuran ikon tetap */
     color: #333;
+    margin-bottom: 10px;
 }
 

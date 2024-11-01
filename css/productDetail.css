@@ -161,7 +161,7 @@ body {
 .Product-Info-left {
     width: 50%; /* Adjusts left section width */
     padding: 20px;
-    display: flex;
+
     flex-direction: column;
     align-items: flex-start; /* Pastikan semua konten kiri berada di atas */
 }
@@ -173,17 +173,44 @@ body {
 
 }
 
+
 .Product-Detail h3{
     color: #6A9C89;
     text-align: left;
     margin-left: 170px;
+    margin-top: 20px;
 }
 
 .Product-Detail p {
     font-size: 16px;
-    color: #666;
+    color: #6A9C89;
     line-height: 1.6;
     margin-bottom: 15px;
+    padding: 0 20px; /* Menambahkan padding kiri dan kanan */
+    text-align: left;
+}
+
+.Product-Info-left p{
+    font-size: 16px;
+    color: #6A9C89;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding: 0 20px; /* Menambahkan padding kiri dan kanan */
+    text-align: left;
+    overflow-wrap: break-word; /* Membungkus kata agar tidak keluar */
+    overflow: hidden; /* Mencegah teks keluar dari batas */
+}
+
+.Product-info p {
+    font-size: 16px;
+    color: #6A9C89;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    margin-left: -39;
+    padding: 0 20px; /* Menambahkan padding kiri dan kanan */
+    text-align: left;
+    overflow-wrap: break-word; /* Membungkus kata agar tidak keluar */
+    overflow: hidden; /* Mencegah teks keluar dari batas */
 }
 
 .Product-Info h1 {
@@ -199,7 +226,7 @@ body {
     
 }
 
-.Product-Info p {
+.Product-Info span {
     text-align: left;
     color: #6A9C89;
     margin-left: -120px;
@@ -233,14 +260,14 @@ body {
     background-color: #558C6B;
 }
 
-/* quantity selector */
+
 .quantity-selector {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 2px;
     font-family: Arial, sans-serif;
     color: #6A9C89;
-    margin-top: 30px;
+    margin-top: 30px;;
 }
 
 .quantity-selector button {

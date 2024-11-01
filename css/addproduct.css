@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E9EFEC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.Add-Product{
+    background-color: white;
+    padding: 30px;
+    width: 700px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Add-Product h1{
+    text-align: left;
+    color: #6A9C89;
+    margin-bottom: 30px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    width: 30%;
+    color: #4b7168;
+    font-size: 14px;
+}
+
+.form-row input[type="text"],
+.form-row input[type="number"],
+.form-row textarea,
+.form-row select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 70%;
+    font-size: 14px;
+}
+
+
+textarea{
+    resize: none;
+    height: 100px;
+}
+
+select {
+    background-color: #fff;
+    color: grey;
+}
+
+.media-upload {
+    padding: 20px;
+    border: 1px dashed #4b7168;
+    border-radius: 4px;
+    position: relative;
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    cursor: pointer;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-upload .icon-plus {
+    font-size: 24px;
+    color: #4b7168;
+    margin-bottom: 5px; /* Beri jarak antara ikon plus dan teks */
+}
+
+.media-upload .upload-text {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.media-upload input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+button {
+    border-radius: px;
+    border: 1px solid #6A9C89;
+    background-color: #6A9C89;
+    text-decoration: none;
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+}
+
+button a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+}
+button:hover {
+    background-color: #3d5f57;
+}

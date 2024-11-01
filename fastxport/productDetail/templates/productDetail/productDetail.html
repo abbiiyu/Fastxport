@@ -6,18 +6,18 @@
         <meta name="viewport" content="width=width=device-width, initial-scale=1.0">
         <title>Product</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="{% url 'productDetail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/productDetail.css' %}">
 </head>
 <body>
     <nav class="navbar">
 
         <div class="logo">
-            <img src="{% static 'image/logo.png' %}" alt="Logo" />
+            <img src="{% static 'image/logo.jpg' %}" alt="Logo" />
         </div>
 
         <ul class="tulisan-navbar">
             <li><a href="{% url 'product' %}">Product</a></li>
-            <li><a href="joinassupplier.html">Join as Supplier</a></li>
+            <li><a href="{% url 'supplier' %}">Join as Supplier</a></li>
             <li><a href="#">Expedition</a></li>
             <li><a href="#">Help</a></li>
         </ul>
@@ -44,7 +44,7 @@
       <div class="Product-Info">
         <div class="Product-Info-left">
             <h1>Ters Farmer</h1>
-            <img src="../cabe.jpg" alt="cabbage">
+            <img src="{% static "image/cabe.jpg" %} " alt="cabbage">
             <div class="Product-Detail">
                 <h3>Description</h3>
                 <p> Fresh, high-quality green cabbage for sale at $300 per ton. <br>

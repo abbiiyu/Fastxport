@@ -1,3 +1,4 @@
+{% extends "product/base.html" %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,27 +9,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/productDetail.css' %}">
 </head>
+{% block content %}
 <body>
-    <nav class="navbar">
-
-        <div class="logo">
-            <img src="{% static 'image/logo.jpg' %}" alt="Logo" />
-        </div>
-
-        <ul class="tulisan-navbar">
-            <li><a href="{% url 'product' %}">Product</a></li>
-            <li><a href="{% url 'supplier' %}">Join as Supplier</a></li>
-            <li><a href="#">Expedition</a></li>
-            <li><a href="#">Help</a></li>
-        </ul>
-
-        <a href="cart.html" class="cart-button">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-        <button class="login-button" onclick="window.location.href='login.html'">Sign In</button>
-
-
-    </nav> 
 
     <div class="search-container">
         <input type="text" placeholder="Search supplier, commodity..." class="search-input">
@@ -94,7 +76,6 @@
             </div>
         </div>
     </div>
-    
-    
 </body>
+{% endblock content %}
 </html>

@@ -24,3 +24,9 @@ def ekspedisi(request):
         'name': 'Halaman Product'
     }
     return render(request, 'product/ekspedisi.html', context)
+
+def productDetail(request):
+    context = {
+        'name': 'Halaman ProductDetail'
+    }
+    return render(request, 'product/productDetail.html', context)

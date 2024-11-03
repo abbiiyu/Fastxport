@@ -1,5 +1,4 @@
 {% load static %}
-{% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> {% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,12 +20,12 @@
     <nav class="navbar">
 
         <div class="logo">
-            <img src="{% static 'image/logo.png' %}" alt="Logo" />
+            <img src="{% static 'image/logo.jpg' %}" alt="Logo" />
         </div>
 
         <ul class="tulisan-navbar">
             <li><a href="{% url 'product' %}">Product</a></li>
-            <li><a href="joinassupplier.html">Join as Supplier</a></li>
+            <li><a href="{% url 'supplier' %}">Join as Supplier</a></li>
             <li><a href="#">Expedition</a></li>
             <li><a href="#">Help</a></li>
         </ul>
@@ -34,7 +33,7 @@
         <a href="cart.html" class="cart-button">
             <i class="fas fa-shopping-cart"></i>
         </a>
-        <button class="login-button" onclick="window.location.href='login.html'">Sign In</button>
+        <button class="login-button" onclick="window.location.href='{% url 'login' %}'">Sign In</button>
 
 
     </nav>

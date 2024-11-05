@@ -12,3 +12,9 @@ def register(request):
         'name': 'Halaman Register'
     }
     return render(request, 'register/register.html', context)
+
+def signsucces(request):
+    context = {
+        'name': 'Halaman SignSuccess'
+    }
+    return render(request, 'register/signsucces.html', context)

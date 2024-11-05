@@ -9,6 +9,6 @@ urlpatterns = [
     path('product-detail/', views.productDetail, name="productDetail"),
     
     
-
+ 
     
 ]

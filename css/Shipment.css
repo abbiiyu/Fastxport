@@ -7,11 +7,12 @@
 body {
     background-color: #6A9C89;
     height: 100vh;
-    
+    font-family: "Inter", sans-serif;
 }
 
 .logo img {
-    height: 100px; /* Atur tinggi logo sesuai kebutuhan */
+    height: 10rem; 
+    margin-top: 1rem;/* Atur tinggi logo sesuai kebutuhan */
     margin-left: 50px; /* Tambahkan jarak antara logo dan menu */
 }
 
@@ -98,5 +99,78 @@ body {
 
 .gmbr1{
     width: 100%;
-    margin-top: -30px;
+    margin-top:-3rem;
+}
+
+.kategori {
+    display: block;
+    text-align: center;
+    margin-top: 3rem;
+    height: 60rem;
+}
+
+h1 {
+    font-size: 4rem;
+    color: white;
+    margin: 0;
+    padding-bottom: 2rem;
+}
+
+.kategori-list {
+    display: flex; /* Menggunakan flexbox untuk susunan horizontal */
+    flex-direction: row; /* Susun elemen di dalam kategori-list secara horizontal */
+    gap: 5rem; /* Jarak antar lingkaran */
+    flex-wrap: wrap; /* Membungkus jika ruang tidak cukup */
+    justify-content: center; /* Posisikan semua elemen di tengah secara horizontal */
+    margin-top: 4rem;
+}
+
+.lingkaran-merah,
+.lingkaran-hijau,
+.lingkaran-biru {
+    position: relative;
+    width: 30rem; /* Ukuran lingkaran */
+    height: 30rem; /* Ukuran lingkaran */
+    border-radius: 50%; /* Membuat lingkaran */
+    display: inline-block;
+    box-shadow: 5px 5px 10px #333
+}
+
+.lingkaran-merah {
+    background-color: red;
+}
+
+.lingkaran-hijau {
+    background-color: green;
+}
+
+.lingkaran-biru {
+    background-color: blue;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
+.icon-container {
+    display: flex;
+    gap: 3rem; /* Jarak antar ikon */
+}
+
+.icon {
+    width: 90px;
+    height: auto;
+}
+
+p {
+    font-size: 2.1rem;
+    color: white;
 }

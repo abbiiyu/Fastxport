@@ -97,6 +97,10 @@ body {
     background-color: black; /* Darker green on hover */
 }
 
+.hidden {
+    display: none;
+}
+
 .welcome{
     font-family: Arial, Helvetica, sans-serif;
     color: white;

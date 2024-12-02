@@ -1,3 +1,40 @@
+<?php
+include '../koneksi.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Koneksi ke database
+    $conn = new mysqli('localhost', 'root', '', 'fastxport');
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Ambil data dari form
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Cari user di tabel `users`
+    $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        if (password_verify($password, $user['password'])) {
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            header("Location: index.php");
+        } else {
+            echo "<script>alert('Invalid password');</script>";
+        }
+    } else {
+        echo "<script>alert('User not found');</script>";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,20 +43,17 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="../css/login.css">
-    <style>
-       
-    </style>
 </head>
 <body>
     <div class="login-container">
-        <form class="login-form" action="signsucces.html" method="post">
+        <form class="login-form" action="login.php" method="POST">
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" required>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 <button type="button" class="show-password" onclick="togglePassword()">
                     <i class="fas fa-eye-slash"></i>
                 </button>
@@ -53,3 +87,4 @@
     </script>
 </body>
 </html>
+

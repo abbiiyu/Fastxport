@@ -170,7 +170,66 @@ h1 {
     height: auto;
 }
 
-p {
+.kategori-list p {
     font-size: 2.1rem;
     color: white;
+}
+
+.shipment-category {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    gap: 2rem; /* Memberi jarak antar elemen */
+}
+
+.shipment-list {
+    margin: 3rem;
+    flex-direction: row;
+    border-radius: 3rem;
+}   
+
+.isi-shipment {
+    background-color: #B2C8BA;
+    margin: 1rem;
+    height: 40rem;
+    width: 40rem;
+    border-radius: 3rem;
+    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column; /* Mengatur layout ke kolom */
+    align-items: center; /* Rata tengah secara horizontal */
+    padding: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.shipment-list img {
+    margin-top: 2rem;
+    width: 80%; 
+    height: auto;
+    border-radius: 1rem; 
+}
+
+.tulisan-shipment {
+    background-color: #D9D9D9;
+    height: 8rem;
+    width: 60%;
+    margin-top: 2rem; /* Memastikan elemen tetap di bawah */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.isi-shipment p {
+    color: black;
+    text-align: center;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5rem; 
 }

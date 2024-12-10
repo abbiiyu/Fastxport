@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex; /* Atur layout dengan flexbox */
+    flex-direction: column; /* Elemen disusun vertikal */
+    min-height: 100vh; /* Pastikan body memenuhi tinggi layar */
+    background-color: #6A9C89;
+    font-family: "Inter", sans-serif;
+}
+
+.logo img {
+    height: 10rem; 
+    margin-top: 1rem;/* Atur tinggi logo sesuai kebutuhan */
+    margin-left: 50px; /* Tambahkan jarak antara logo dan menu */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #6A9C89;
+
+}
+
+.nav-links {
+    flex: 1; /* Membuat kontainer nav-links mengisi ruang yang tersedia */
+    display: flex; /* Menggunakan flex untuk menu */
+    justify-content: center; /* Memusatkan menu di dalam kontainer */
+}
+
+.tulisan-navbar {
+    font-family: Arial, Helvetica, sans-serif ;
+    color: #6A9C89;
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.tulisan-navbar li a {
+    position: relative; /* Dibutuhkan untuk menempatkan garis bawah animasi */
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.tulisan-navbar li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color:white; /* Warna underline */
+    transition: width 0.3s ease; /* Smooth underline expansion */
+
+}
+.nav-links li a:hover {
+    color: #666; /* Gray hover effect */
+}
+
+.tulisan-navbar li a:hover::after {
+    width: 100%;
+}
+
+.cart-button {
+    color: #6A9C89; /* Sesuaikan warna ikon */
+    font-size: 30px; /* Ukuran ikon */
+    margin-right: -50vh; /* Jarak antara ikon dengan tombol Sign In */
+    text-decoration: none;
+}
+
+.cart-icon:hover {
+    color: #333; /* Ubah warna saat hover */
+}
+
+
+.login-button {
+    background-color: white; /* Green button */
+    color: black;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    margin-right: 90px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    right: 30px;
+    cursor: pointer;
+}
+
+
+.login-button:hover {
+    background-color: whitesmoke; /* Darker green on hover */
+}
+
+
+.FAQ {
+    flex: 1; /* Biarkan bagian FAQ mengisi ruang yang tersisa */
+    display: flex; /* Gunakan flexbox untuk memusatkan konten FAQ */
+    flex-direction: column;
+    justify-content: center; /* Pusatkan secara vertikal */
+    align-items: center; /* Pusatkan secara horizontal */
+    text-align: center;
+    width: 90%;
+    max-width: 37.5rem; /* Setara dengan 600px */
+    margin: auto; /* Pastikan FAQ tetap di tengah horizontal */
+    margin-bottom: 15rem;
+}
+
+h1 {
+    font-size: 3rem; /* Ukuran font judul */
+    color: white;
+    margin-bottom: 2rem; /* Setara dengan 20px */
+}
+
+.list-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Setara dengan 10px */
+}
+
+.isi-faq {
+    background-color: #D9D9D9;
+    width: 50rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+
+.isi-faq p {
+    margin: 0;
+    font-size: 1rem; /* Ukuran teks normal */
+    color: #333; /* Warna teks */
+    font-weight: bold;
+}
+
+.isi-faq:hover {
+    transform: translateY(-0.1875rem); /* Setara dengan -3px */
+    background-color: #E8E8E8; /* Warna latar saat hover */
+}
+
+.isi-faq::after {
+    content: "▼"; /* Icon panah ke bawah */
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.2s ease;
+}
+
+.isi-faq.active::after {
+    transform: rotate(180deg); /* Rotasi panah saat aktif */
+}
+
+footer {
+    background: #6A9C89;
+    padding: 3rem;
+}
+
+.kontainer img {
+    margin-right: 5rem; /* Memberikan sedikit jarak dengan konten lain */
+    align-self: flex-start; /* Agar gambar tetap di bagian atas */
+    max-height: 100px; /* Atur ukuran maksimal untuk menjaga proporsi */
+}
+
+.kontainer {
+    width: 1140px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Mengatur jarak antar elemen */
+    align-items: flex-start; /* Agar elemen mengikuti poros vertikal atas */
+}
+
+.footer-content {
+    width: 30%; /* Disesuaikan untuk tiga kolom */
+}
+
+.inform-section {
+    text-align: left; 
+}
+
+.inform-section a {
+    text-decoration: none;
+    color: white;
+}
+
+.inform-section a:hover {
+    color: #cce7d0; /* Warna hover untuk tautan */
+}
+
+.support-section {
+    text-align: left;
+}
+
+.support-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.support-section p {
+    margin: 7px 0;
+    color: white;
+    cursor: pointer; /* Agar terlihat seperti dapat diklik */
+}
+
+.support-section p:hover {
+    color: #cce7d0; /* Warna hover */
+}
+
+.contact-section {
+    text-align: right; 
+}
+
+.footer-content h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer-content p {
+    margin: 7px 0;
+    color: white;
+}
+
+.footer-content ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.footer-content li {
+    display: inline-block; 
+    margin: 0 6px;
+}
+
+.footer-content li a i {
+    font-size: 1.2rem; /* Ukuran ikon */
+}
+
+.bottom-bar {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 50px;
+    color: white;
+}
+

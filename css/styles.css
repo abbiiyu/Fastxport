@@ -276,29 +276,64 @@ body {
 .more-button:hover{
     background-color:black ;
 }
-
-footer{
+footer {
     background: #6A9C89;
-    padding: 50px;
+    padding: 3rem;
+}
+
+.kontainer img {
+    margin-right: 5rem; /* Memberikan sedikit jarak dengan konten lain */
+    align-self: flex-start; /* Agar gambar tetap di bagian atas */
+    max-height: 100px; /* Atur ukuran maksimal untuk menjaga proporsi */
 }
 
 .kontainer {
     width: 1140px;
     margin: auto;
     display: flex;
-    justify-content: space-between; /* Mengatur jarak antara Contact Us dan Follow Us */
+    flex-direction: row;
+    justify-content: space-between; /* Mengatur jarak antar elemen */
     align-items: flex-start; /* Agar elemen mengikuti poros vertikal atas */
 }
 
 .footer-content {
-    width: 50%; 
+    width: 30%; /* Disesuaikan untuk tiga kolom */
 }
 
-.contact-section {
+.inform-section {
     text-align: left; 
 }
 
-.follow-section {
+.inform-section a {
+    text-decoration: none;
+    color: white;
+}
+
+.inform-section a:hover {
+    color: #cce7d0; /* Warna hover untuk tautan */
+}
+
+.support-section {
+    text-align: left;
+}
+
+.support-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.support-section p {
+    margin: 7px 0;
+    color: white;
+    cursor: pointer; /* Agar terlihat seperti dapat diklik */
+}
+
+.support-section p:hover {
+    color: #cce7d0; /* Warna hover */
+}
+
+.contact-section {
     text-align: right; 
 }
 
@@ -321,7 +356,11 @@ footer{
 
 .footer-content li {
     display: inline-block; 
-    margin: 0 06px;
+    margin: 0 6px;
+}
+
+.footer-content li a i {
+    font-size: 1.2rem; /* Ukuran ikon */
 }
 
 .bottom-bar {

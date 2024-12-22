@@ -1,16 +1,15 @@
 <?php
 // Konfigurasi koneksi
-$servername = "localhost"; // Host database
-$username = "root";        // Username default XAMPP
-$password = "";            // Password default XAMPP (biasanya kosong)
-$dbname = "fastxport_db"; // Ganti dengan nama database Anda
+$db_host = "localhost"; // Host database
+$db_user = "root";        // Username default XAMPP
+$db_pass = "";            // Password default XAMPP (biasanya kosong)
+$db_name= "fastxport_db"; // Ganti dengan nama database Anda
 
 // Membuat koneksi
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
 // Cek koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
-//echo "Koneksi berhasil!";
+if (!$conn) {
+    die("Koneksi Gagal");
+} 
 ?>

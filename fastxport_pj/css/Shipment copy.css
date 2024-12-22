@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #6A9C89;
+    height: 100vh;
+    font-family: "Inter", sans-serif;
+}
+
+.logo img {
+    height: 10rem; 
+    margin-top: 1rem;/* Atur tinggi logo sesuai kebutuhan */
+    margin-left: 50px; /* Tambahkan jarak antara logo dan menu */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+   
+}
+
+.nav-links {
+    flex: 1; /* Membuat kontainer nav-links mengisi ruang yang tersedia */
+    display: flex; /* Menggunakan flex untuk menu */
+    justify-content: center; /* Memusatkan menu di dalam kontainer */
+}
+
+.tulisan-navbar {
+    font-family: Arial, Helvetica, sans-serif ;
+    color: #6A9C89;
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.tulisan-navbar li a {
+    position: relative; /* Dibutuhkan untuk menempatkan garis bawah animasi */
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.tulisan-navbar li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color:white; /* Warna underline */
+    transition: width 0.3s ease; /* Smooth underline expansion */
+
+}
+.nav-links li a:hover {
+    color: #666; /* Gray hover effect */
+}
+
+.tulisan-navbar li a:hover::after {
+    width: 100%;
+}
+
+.cart-button {
+    color: #6A9C89; /* Sesuaikan warna ikon */
+    font-size: 30px; /* Ukuran ikon */
+    margin-right: -50vh; /* Jarak antara ikon dengan tombol Sign In */
+    text-decoration: none;
+}
+
+.cart-icon:hover {
+    color: #333; /* Ubah warna saat hover */
+}
+
+
+.login-button {
+    background-color: white; /* Green button */
+    color: black;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    margin-right: 90px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    right: 30px;
+    cursor: pointer;
+}
+
+
+.login-button:hover {
+    background-color: whitesmoke; /* Darker green on hover */
+}
+
+.gmbr1{
+    width: 100%;
+    margin-top:-3rem;
+}
+
+.kategori {
+    display: block;
+    text-align: center;
+    margin-top: 3rem;
+    height: 45rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+    padding-bottom: 2rem;
+}
+
+.kategori-list {
+    display: flex; /* Menggunakan flexbox untuk susunan horizontal */
+    flex-direction: row; /* Susun elemen di dalam kategori-list secara horizontal */
+    gap: 5rem; /* Jarak antar lingkaran */
+    flex-wrap: wrap; /* Membungkus jika ruang tidak cukup */
+    justify-content: center; /* Posisikan semua elemen di tengah secara horizontal */
+    margin-top: 4rem;
+}
+
+.lingkaran-merah,
+.lingkaran-hijau,
+.lingkaran-biru {
+    position: relative;
+    width: 25rem; /* Ukuran lingkaran */
+    height: 25rem; /* Ukuran lingkaran */
+    border-radius: 50%; /* Membuat lingkaran */
+    display: inline-block;
+    box-shadow: 5px 5px 10px #333
+}
+
+.lingkaran-merah {
+    background-color: red;
+}
+
+.lingkaran-hijau {
+    background-color: green;
+}
+
+.lingkaran-biru {
+    background-color: blue;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
+.icon-container {
+    display: flex;
+    gap: 3rem; /* Jarak antar ikon */
+}
+
+.icon {
+    width: 90px;
+    height: auto;
+}
+
+.kategori-list p {
+    font-size: 2.1rem;
+    color: white;
+}
+
+.shipment-category {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    gap: 1rem; /* Memberi jarak antar elemen */
+}
+
+.shipment-list {
+    margin: 3rem;
+    flex-direction: row;
+    border-radius: 3rem;
+}   
+
+.isi-shipment {
+    background-color: #B2C8BA;
+    margin: 1rem;
+    height: 30rem;
+    width: 30rem;
+    border-radius: 3rem;
+    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column; /* Mengatur layout ke kolom */
+    align-items: center; /* Rata tengah secara horizontal */
+    padding: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.shipment-list img {
+    margin-top: 2rem;
+    width: 80%; 
+    height: auto;
+    border-radius: 1rem; 
+}
+
+.tulisan-shipment {
+    background-color: #D9D9D9;
+    height: 8rem;
+    width: 70%;
+    margin-top: 2rem; /* Memastikan elemen tetap di bawah */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.isi-shipment p {
+    color: black;
+    text-align: center;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5rem; 
+}
+
+footer {
+    background: #6A9C89;
+    padding: 3rem;
+}
+
+.kontainer img {
+    margin-right: 5rem; /* Memberikan sedikit jarak dengan konten lain */
+    align-self: flex-start; /* Agar gambar tetap di bagian atas */
+    max-height: 100px; /* Atur ukuran maksimal untuk menjaga proporsi */
+}
+
+.kontainer {
+    width: 1140px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Mengatur jarak antar elemen */
+    align-items: flex-start; /* Agar elemen mengikuti poros vertikal atas */
+}
+
+.footer-content {
+    width: 30%; /* Disesuaikan untuk tiga kolom */
+}
+
+.inform-section {
+    text-align: left; 
+}
+
+.inform-section a {
+    text-decoration: none;
+    color: white;
+}
+
+.inform-section a:hover {
+    color: #cce7d0; /* Warna hover untuk tautan */
+}
+
+.support-section {
+    text-align: left;
+}
+
+.support-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.support-section p {
+    margin: 7px 0;
+    color: white;
+    cursor: pointer; /* Agar terlihat seperti dapat diklik */
+}
+
+.support-section p:hover {
+    color: #cce7d0; /* Warna hover */
+}
+
+.contact-section {
+    text-align: right; 
+}
+
+.footer-content h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer-content p {
+    margin: 7px 0;
+    color: white;
+}
+
+.footer-content ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.footer-content li {
+    display: inline-block; 
+    margin: 0 6px;
+}
+
+.footer-content li a i {
+    font-size: 1.2rem; /* Ukuran ikon */
+}
+
+.bottom-bar {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 50px;
+    color: white;
+}
+

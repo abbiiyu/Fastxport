@@ -32,7 +32,6 @@ body {
 
 .tulisan-navbar {
     font-family: Arial, Helvetica, sans-serif ;
-    color: #6A9C89;
     list-style-type: none;
     display: flex;
     gap: 30px;
@@ -41,7 +40,7 @@ body {
 .tulisan-navbar li a {
     position: relative; /* Dibutuhkan untuk menempatkan garis bawah animasi */
     text-decoration: none;
-    color: #6A9C89;
+    color: #fff;
     font-size: 20px;
     padding: 5px 0;
     transition: color 0.3s ease;
@@ -112,7 +111,7 @@ body {
     background-color: #6A9C89; 
 }
 
-.profile-user p {
+.profile-user span{
     color: white;
     font-size: 20px;
 }

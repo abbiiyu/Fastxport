@@ -16,63 +16,66 @@ $fullName = $isLoggedIn && isset($_SESSION['full_name']) ? $_SESSION['full_name'
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-<div>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="index.php">
-                <img src="./assets/images/LOGO1.png" alt="Logo" />
-            </a>
-        </div>        
-
-        <ul class="tulisan-navbar">
-            <li><a href="./pages/product.php">Product</a></li>
-            <?php if ($role === 'supplier'): ?>
-                <li><a href="./pages/supplier.php">Supplier</a></li>
-            <?php else: ?>
-                <li><a href="./pages/joinassupplier.html">Join as Supplier</a></li>
-            <?php endif; ?>
-            <li><a href="./pages/Shipment.html">Expedition</a></li>
-            <li><a href="./pages/Help.html">Help</a></li>
-        </ul>
-
-        <?php if ($isLoggedIn): ?>
-            <div class="profile-section">
-                <a href="cart.html" class="cart-button">
-                    <i class="fas fa-shopping-cart"></i>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.php">
+                    <img src="./assets/images/LOGO1.png" alt="Logo" />
                 </a>
-                <div class="profile-user">
-                    <img src="./assets/images/user.png" alt="profile" class="profile-icon">
-                    <span><?php echo htmlspecialchars($fullName); ?></span> 
+            </div>        
+
+            <ul class="tulisan-navbar">
+                <li><a href="./pages/product.php">Product</a></li>
+                <?php if ($role === 'supplier'): ?>
+                    <li><a href="./pages/supplier.php">Supplier</a></li>
+                <?php else: ?>
+                    <li><a href="./pages/joinassupplier.html">Join as Supplier</a></li>
+                <?php endif; ?>
+                <li><a href="./pages/Shipment.html">Expedition</a></li>
+                <li><a href="./pages/Help.html">Help</a></li>
+            </ul>
+
+            <?php if ($isLoggedIn): ?>
+                <div class="profile-section">
+                    <a href="cart.html" class="cart-button">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <div class="profile-user">
+                        <img src="./assets/images/user.png" alt="profile" class="profile-icon">
+                        <span><?php echo htmlspecialchars($fullName); ?></span> 
+                    </div>
+                    <a href="./pages/logout.php" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
                 </div>
-                <a href="./pages/logout.php" class="logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
-            </div>
-        <?php else: ?>
-            <a href="./pages/login.php" class="login-button">Sign In</a>
-        <?php endif; ?>
-    </nav>
-
-    <h1 class="welcome">
-        <p>WELCOME, </p>
-        <p>FIND WHAT YOU NEED HERE! </p>
-    </h1>
-
-    <h2 class="tulisan-kecil">
-        <p>There are more than 100 products available that you can buy at the best deal</p>
-    </h2>
+            <?php else: ?>
+                <a href="./pages/login.php" class="login-button">Sign In</a>
+            <?php endif; ?>
+        </nav>
+    </header>
+    <div>
+        <h1 class="welcome">
+            <p>WELCOME</p>
+            <p>FIND WHAT YOU NEED HERE! </p>
+        </h1>
+        <h2 class="tulisan-kecil">
+            <p>There are more than 100 products available that you can buy at the best deal</p>
+        </h2>
+    </div>
 
     <div class="search-button">
         <input type="text" placeholder="Search...">
         <i class="fa fa-search"></i>
     </div>
-
-    <ul class="kategori">
-        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i>Top Trusted Supplier</a></li>
-        <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i>More than 100 items</a></li>
-        <li><a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Shipping with guarantee</a></li>
-        <li><a href="#"><i class="fa fa-check-circle" aria-hidden="true"></i>Following market trends</a></li>
-    </ul>
+    
+    <div>
+        <ul class="kategori">
+            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i>Top Trusted Supplier</a></li>
+            <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i>More than 100 items</a></li>
+            <li><a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Shipping with guarantee</a></li>
+            <li><a href="#"><i class="fa fa-check-circle" aria-hidden="true"></i>Following market trends</a></li>
+        </ul>
+    </div>
 
     <div class="List-product">
         <div>
@@ -130,6 +133,6 @@ $fullName = $isLoggedIn && isset($_SESSION['full_name']) ? $_SESSION['full_name'
             <p>&copy; 2024 FastXport. All rights reserved.</p>
         </div>
     </footer>
-</div>    
+   
 </body>
 </html>

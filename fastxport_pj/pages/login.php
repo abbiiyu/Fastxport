@@ -10,7 +10,7 @@ if (isset($_POST['login'])) {
     require_once '../conn.php';
 
     // Query to retrieve user data based on email
-    $sql1 = "SELECT role, password FROM login_acc WHERE email = ?";
+    $sql1 = "SELECT id_acc, full_name, role, password FROM login_acc WHERE email = ?";
     $stmt = mysqli_prepare($conn, $sql1);
 
     if ($stmt) {
@@ -22,19 +22,12 @@ if (isset($_POST['login'])) {
             $r1 = mysqli_fetch_array($result, MYSQLI_ASSOC);
             if ($r1) {
                 // Verify password (consider using password_verify for hashed passwords)
-                if ($password === $r1['password']) {
+                if ($password === $r1['password']) { 
                     // Password is correct, set session variables
                     $_SESSION['email'] = $email;
                     $_SESSION['role'] = $r1['role'];
-
-                    // Fetch the full name from the database and set it in the session
-                    $query = "SELECT full_name FROM login_acc WHERE email = '$email'";
-                    $resultName = mysqli_query($conn, $query);
-                    
-                    if ($resultName && mysqli_num_rows($resultName) > 0) {
-                        $row = mysqli_fetch_assoc($resultName);
-                        $_SESSION['full_name'] = $row['full_name'];
-                    }
+                    $_SESSION['user_id'] = $r1['id_acc']; // Store user ID in session
+                    $_SESSION['full_name'] = isset($r1['full_name']) ? htmlspecialchars($r1['full_name']) : ""; 
 
                     mysqli_stmt_close($stmt);
                     mysqli_close($conn);
@@ -49,10 +42,12 @@ if (isset($_POST['login'])) {
         } else {
             echo "<div class='alert alert-danger'>Terjadi kesalahan saat mengambil data</div>";
         }
+        
         mysqli_stmt_close($stmt);
     } else {
         die("Query gagal: " . mysqli_error($conn));
     }
+    
     mysqli_close($conn);
 }
 ?>
@@ -63,7 +58,6 @@ if (isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
@@ -114,3 +108,4 @@ if (isset($_POST['login'])) {
     </script>
 </body>
 </html>
+

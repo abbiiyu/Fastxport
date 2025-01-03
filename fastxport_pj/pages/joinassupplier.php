@@ -1,3 +1,10 @@
+<?php
+session_start();
+// Check login status
+$isLoggedIn = isset($_SESSION['email']); 
+$role = $isLoggedIn ? $_SESSION['role'] : null; 
+$fullName = $isLoggedIn && isset($_SESSION['full_name']) ? $_SESSION['full_name'] : "Guest"; // Check if full_name exists
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,39 +12,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>joinassupplier</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/joinassupplierlogin.css">
+    <link rel="stylesheet" href="../css/joinassupplier.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="./index.php">
-                <img src="../assets/images/LOGO1.png" alt="Logo" />
-            </a>
-        </div>  
+<header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.php">
+                    <img src="../assets/images/LOGO1.png" alt="Logo" />
+                </a>
+            </div>        
 
-        <ul class="tulisan-navbar">
-            <li><a href="./productlogin.html">Product</a></li>
-            <li><a href="./joinassupplierlogin.html">Join as Supplier</a></li>
-            <li><a href="./shipmenntlogin.html">Shipment</a></li>
-            <li><a href="./Helplogin.html">Help</a></li>
-        </ul>
+            <ul class="tulisan-navbar">
+                <li><a href="./product.php">Product</a></li>
+                <?php if ($role === 'supplier'): ?>
+                    <li><a href="./supplier.php">Supplier</a></li>
+                <?php else: ?>
+                    <li><a href="./joinassupplier.php">Join as Supplier</a></li>
+                <?php endif; ?>
+                <li><a href="./Shipment.php">Expedition</a></li>
+                <li><a href="./Help.php">Help</a></li>
+            </ul>
 
-        <a href="cart.html" class="cart-button">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-        <a href="profile.html" class="profile-btn">
-            <img src="../assets/images/user.png" alt="profile" class="profile-icon">
-        </a>
-    </nav>
+            <?php if ($isLoggedIn): ?>
+                <div class="profile-section">
+                    <a href="cart.html" class="cart-button">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <div class="profile-user">
+                        <img src="../assets/images/user.png" alt="profile" class="profile-icon">
+                        <span><?php echo htmlspecialchars($fullName); ?></span> 
+                    </div>
+                    <a href="./logout.php" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            <?php else: ?>
+                <a href="./login.php" class="login-button">Sign In</a>
+            <?php endif; ?>
+        </nav>
+    </header>
 
     <div class="join-content">
-        <h1>Incrase your business sales on FastXport </h1>
+        <h1>Increase your business sales on FastXport </h1>
         <a href="./joinformulir.php" class="join-button">Join</a>
-
     </div>
 
     <div class="gambar-arah">
-        <img src="../assets/images/arahh.png" alt="">
        
     </div>
 

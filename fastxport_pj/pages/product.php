@@ -1,5 +1,9 @@
-<?php 
-
+<?php
+session_start();
+// Check login status
+$isLoggedIn = isset($_SESSION['email']); 
+$role = $isLoggedIn ? $_SESSION['role'] : null; 
+$fullName = $isLoggedIn && isset($_SESSION['full_name']) ? $_SESSION['full_name'] : "Guest"; // Check if full_name exists
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,27 +15,43 @@
     <link rel="stylesheet" href="../css/product.css">
 </head>
 <body>
-    <nav class="navbar">
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.php">
+                    <img src="../assets/images/LOGO1.png" alt="Logo" />
+                </a>
+            </div>        
 
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../assets/images/LOGO1.png" alt="Logo" />
-            </a>
-        </div>        
+            <ul class="tulisan-navbar">
+                <li><a href="./product.php">Product</a></li>
+                <?php if ($role === 'supplier'): ?>
+                    <li><a href="./supplier.php">Supplier</a></li>
+                <?php else: ?>
+                    <li><a href="./joinassupplier.php">Join as Supplier</a></li>
+                <?php endif; ?>
+                <li><a href="./Shipment.php">Expedition</a></li>
+                <li><a href="./Help.php">Help</a></li>
+            </ul>
 
-        <ul class="tulisan-navbar">
-            <li><a href="../pages/product.html">Product</a></li>
-            <li><a href="../pages/joinassupplier.html">Join as Supplier</a></li>
-            <li><a href="../pages/Shipment.html">Shipment</a></li>
-            <li><a href="../pages/Help.html">Help</a></li>
-        </ul>
-        
-        <a href="cart.html" class="cart-button">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-        
-        <button class="login-button" onclick="window.location.href='./pages/login.html';">Sign In</button>
-    </nav>
+            <?php if ($isLoggedIn): ?>
+                <div class="profile-section">
+                    <a href="cart.html" class="cart-button">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <div class="profile-user">
+                        <img src="../assets/images/user.png" alt="profile" class="profile-icon">
+                        <span><?php echo htmlspecialchars($fullName); ?></span> 
+                    </div>
+                    <a href="./logout.php" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            <?php else: ?>
+                <a href="./login.php" class="login-button">Sign In</a>
+            <?php endif; ?>
+        </nav>
+    </header>
 
     <div class="search-container">
         <input type="text" placeholder="Search supplier, commodity..." class="search-input">
@@ -45,7 +65,7 @@
 
     <div class="product-grid">
 
-        <a href="productDetail.html" class="product-isi">
+        <a href="productDetail.php" class="product-isi">
             <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
             <h1 class="farmer-name">Ters Farmer</h1>
             <p class="product-title">Cabe merah banget</p>
@@ -55,7 +75,7 @@
         </a>
         
 
-        <a href="" class="product-isi">
+        <a href="productDetail.php" class="product-isi">
             <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
             <h1 class="farmer-name">Ters Farmer</h1>
             <p class="product-title">Cabe merah banget</p>
@@ -63,7 +83,7 @@
             <p class="min-order">min order 10</p>
             <p class="asal-product">Jawa Barat</p>
         </a>
-        <a href="" class="product-isi">
+        <a href="productDetail.php" class="product-isi">
             <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
             <h1 class="farmer-name">Ters Farmer</h1>
             <p class="product-title">Cabe merah banget</p>
@@ -71,7 +91,7 @@
             <p class="min-order">min order 10</p>
             <p class="asal-product">Jawa Barat</p>
         </a>
-        <a href="" class="product-isi">
+        <a href="productDetail.php" class="product-isi">
             <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
             <h1 class="farmer-name">Ters Farmer</h1>
             <p class="product-title">Cabe merah banget</p>
@@ -79,7 +99,7 @@
             <p class="min-order">min order 10</p>
             <p class="asal-product">Jawa Barat</p>
         </a>
-        <a href="" class="product-isi">
+        <a href="productDetail.php" class="product-isi">
             <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
             <h1 class="farmer-name">Ters Farmer</h1>
             <p class="product-title">Cabe merah banget</p>
@@ -87,16 +107,7 @@
             <p class="min-order">min order 10</p>
             <p class="asal-product">Jawa Barat</p>
         </a>
-        <a href="" class="product-isi">
-            <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
-            <h1 class="farmer-name">Ters Farmer</h1>
-            <p class="product-title">Cabe merah banget</p>
-            <p class="product-price">Rp.23.000/kg</p>
-            <p class="min-order">min order 10</p>
-            <p class="asal-product">Jawa Barat</p>
-        </a>
-
-        <a href="" class="product-isi">
+        <a href="productDetail.php" class="product-isi">
             <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
             <h1 class="farmer-name">Ters Farmer</h1>
             <p class="product-title">Cabe merah banget</p>
@@ -105,7 +116,16 @@
             <p class="asal-product">Jawa Barat</p>
         </a>
 
-        <a href="" class="product-isi">
+        <a href="productDetail.php" class="product-isi">
+            <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
+            <h1 class="farmer-name">Ters Farmer</h1>
+            <p class="product-title">Cabe merah banget</p>
+            <p class="product-price">Rp.23.000/kg</p>
+            <p class="min-order">min order 10</p>
+            <p class="asal-product">Jawa Barat</p>
+        </a>
+
+        <a href="productDetail.php" class="product-isi">
             <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
             <h1 class="farmer-name">Ters Farmer</h1>
             <p class="product-title">Cabe merah banget</p>

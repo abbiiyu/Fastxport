@@ -1,3 +1,10 @@
+<?php
+session_start();
+// Check login status
+$isLoggedIn = isset($_SESSION['email']); 
+$role = $isLoggedIn ? $_SESSION['role'] : null; 
+$fullName = $isLoggedIn && isset($_SESSION['full_name']) ? $_SESSION['full_name'] : "Guest"; // Check if full_name exists
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,36 +19,46 @@
 
 </head>
 <body>
-    <div>
+    <header>
         <nav class="navbar">
+            <div class="logo">
+                <a href="../index.php">
+                    <img src="../assets/images/LOGO1.png" alt="Logo" />
+                </a>
+            </div>        
 
-        <div class="logo">
-            <a href="./homepagelogin.html">
-                <img src="../assets/images/LOGO1.png" alt="Logo" />
-            </a>
-        </div>  
-    
             <ul class="tulisan-navbar">
-                <li><a href="./productlogin.html">Product</a></li>
-                <li><a href="./supplier.php">Supplier</a></li>
-                <li><a href="./shipmenntlogin.html">Shipment</a></li>
-                <li><a href="./Helplogin.html">Help</a></li>
+                <li><a href="./product.php">Product</a></li>
+                <?php if ($role === 'supplier'): ?>
+                    <li><a href="./supplier.php">Supplier</a></li>
+                <?php else: ?>
+                    <li><a href="./joinassupplier.php">Join as Supplier</a></li>
+                <?php endif; ?>
+                <li><a href="./Shipment.php">Expedition</a></li>
+                <li><a href="./Help.php">Help</a></li>
             </ul>
-    
-            <a href="cart.html" class="cart-button">
-                <i class="fas fa-shopping-cart"></i>
-            </a>
-            <a href="profile.html" class="profile-btn">
-                <img src="../assets/images/user.png" alt="profile" class="profile-icon">
-    
-            </a>
-    
-    
+
+            <?php if ($isLoggedIn): ?>
+                <div class="profile-section">
+                    <a href="cart.html" class="cart-button">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <div class="profile-user">
+                        <img src="../assets/images/user.png" alt="profile" class="profile-icon">
+                        <span><?php echo htmlspecialchars($fullName); ?></span> 
+                    </div>
+                    <a href="./logout.php" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            <?php else: ?>
+                <a href="./login.php" class="login-button">Sign In</a>
+            <?php endif; ?>
         </nav>
-    </div>
+    </header>
 
     <div class="container">
-        <a href="./addproduct.html" id="addProduct"><button>Tambah Produk</button></a>
+        <a href="./addproduct.php" id="addProduct"><button>Tambah Produk</button></a>
         <button id="deleteProduct">Hapus Produk</button>
         <table id="productTable">
             <thead>

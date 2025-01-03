@@ -1,37 +1,61 @@
+<?php
+session_start();
+// Check login status
+$isLoggedIn = isset($_SESSION['email']); 
+$role = $isLoggedIn ? $_SESSION['role'] : null; 
+$fullName = $isLoggedIn && isset($_SESSION['full_name']) ? $_SESSION['full_name'] : "Guest"; // Check if full_name exists
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css login/helplogin.css">
+    <link rel="stylesheet" href="../css/help.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/helplogin.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 </head>
 <body>
-    <div>
+    <header>
         <nav class="navbar">
             <div class="logo">
                 <a href="../index.php">
                     <img src="../assets/images/LOGO1.png" alt="Logo" />
                 </a>
-            </div>  
-        
+            </div>        
+
             <ul class="tulisan-navbar">
-                <li><a href="./productlogin.html">Product</a></li>
-                <li><a href="./joinassupplierlogin.html">Join as Supplier</a></li>
-                <li><a href="./shipmenntlogin.html">Shipment</a></li>
-                <li><a href="./Helplogin.html">Help</a></li>
+                <li><a href="./product.php">Product</a></li>
+                <?php if ($role === 'supplier'): ?>
+                    <li><a href="./supplier.php">Supplier</a></li>
+                <?php else: ?>
+                    <li><a href="./joinassupplier.php">Join as Supplier</a></li>
+                <?php endif; ?>
+                <li><a href="./Shipment.php">Expedition</a></li>
+                <li><a href="./Help.php">Help</a></li>
             </ul>
-            <a href="profile.html" class="profile-btn">
-                <img src="../assets/images/user.png" alt="profile" class="profile-icon">
-            </a>
+
+            <?php if ($isLoggedIn): ?>
+                <div class="profile-section">
+                    <a href="cart.html" class="cart-button">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <div class="profile-user">
+                        <img src="../assets/images/user.png" alt="profile" class="profile-icon">
+                        <span><?php echo htmlspecialchars($fullName); ?></span> 
+                    </div>
+                    <a href="./logout.php" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            <?php else: ?>
+                <a href="./login.php" class="login-button">Sign In</a>
+            <?php endif; ?>
         </nav>
-    </div>
+    </header>
 
     <div class="FAQ">
         <h1>FAQ</h1>

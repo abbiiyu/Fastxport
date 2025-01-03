@@ -29,10 +29,10 @@ $fullName = $isLoggedIn && isset($_SESSION['full_name']) ? $_SESSION['full_name'
                 <?php if ($role === 'supplier'): ?>
                     <li><a href="./pages/supplier.php">Supplier</a></li>
                 <?php else: ?>
-                    <li><a href="./pages/joinassupplier.html">Join as Supplier</a></li>
+                    <li><a href="./pages/joinassupplier.php">Join as Supplier</a></li>
                 <?php endif; ?>
-                <li><a href="./pages/Shipment.html">Expedition</a></li>
-                <li><a href="./pages/Help.html">Help</a></li>
+                <li><a href="./pages/Shipment.php">Expedition</a></li>
+                <li><a href="./pages/Help.php">Help</a></li>
             </ul>
 
             <?php if ($isLoggedIn): ?>

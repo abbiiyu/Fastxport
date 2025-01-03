@@ -12,9 +12,18 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+header {
+    background-color: rgba(255, 255, 255, 0.2); /* Transparansi warna */
+    backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
+    z-index: 10; /* Menempatkan header di atas konten */
+    position: sticky;
+    top: 0; /* Menambahkan properti top */
+    width: 100%; /* Ensure header covers full width */
+    height: auto; /* Adjust height as needed */
+}
+
 .logo img {
-    height: 10rem; 
-    margin-top: 1rem;/* Atur tinggi logo sesuai kebutuhan */
+    height: 6.25rem; /* Atur tinggi logo sesuai kebutuhan */
     margin-left: 50px; /* Tambahkan jarak antara logo dan menu */
 }
 
@@ -23,8 +32,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #6A9C89;
-
+   
 }
 
 .nav-links {
@@ -35,7 +43,6 @@ body {
 
 .tulisan-navbar {
     font-family: Arial, Helvetica, sans-serif ;
-    color: #6A9C89;
     list-style-type: none;
     display: flex;
     gap: 30px;
@@ -44,7 +51,7 @@ body {
 .tulisan-navbar li a {
     position: relative; /* Dibutuhkan untuk menempatkan garis bawah animasi */
     text-decoration: none;
-    color: white;
+    color: #fff;
     font-size: 20px;
     padding: 5px 0;
     transition: color 0.3s ease;
@@ -57,7 +64,7 @@ body {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color:white; /* Warna underline */
+    background-color: #4CAF50; /* Warna underline */
     transition: width 0.3s ease; /* Smooth underline expansion */
 
 }
@@ -69,21 +76,9 @@ body {
     width: 100%;
 }
 
-.cart-button {
-    color: #6A9C89; /* Sesuaikan warna ikon */
-    font-size: 30px; /* Ukuran ikon */
-    margin-right: -50vh; /* Jarak antara ikon dengan tombol Sign In */
-    text-decoration: none;
-}
-
-.cart-icon:hover {
-    color: #333; /* Ubah warna saat hover */
-}
-
-
 .login-button {
-    background-color: white; /* Green button */
-    color: black;
+    background-color: #6A9C89; /* Green button */
+    color: white;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
     padding: 10px 20px;
     margin-right: 90px;
@@ -95,9 +90,71 @@ body {
     cursor: pointer;
 }
 
-
 .login-button:hover {
-    background-color: whitesmoke; /* Darker green on hover */
+    background-color: black; /* Darker green on hover */
+}
+/* After Login */
+.profile-section{
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    text-align: left;
+    max-width: 100%;
+    gap: 20px;
+    text-decoration: none;
+}
+.profile-section .profile-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-user img {
+    display: inline-block; 
+    width: 50px;           
+    height: auto;          
+    border-radius: 50%;       
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s; 
+}
+
+.profile-user img:hover {
+    background-color: #6A9C89; 
+}
+
+.profile-user span{
+    color: white;
+    font-size: 20px;
+}
+
+.logout-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    color: white;
+    background-color: #ff4d4d;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+.logout-btn:hover {
+    background-color: #e60000;
+}
+
+.cart-button {
+    color: #6A9C89; /* Sesuaikan warna ikon */
+    font-size: 30px; /* Ukuran ikon */
+    text-decoration: none;
+}
+
+.cart-icon:hover {
+    color: #333; /* Ubah warna saat hover */
+}
+/* end after login */
+
+.hidden {
+    display: none;
 }
 
 

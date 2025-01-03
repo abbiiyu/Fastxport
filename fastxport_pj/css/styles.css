@@ -10,6 +10,15 @@ body {
     height: 100vh;
     
 }
+header {
+    background-color: rgba(255, 255, 255, 0.2); /* Transparansi warna */
+    backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
+    z-index: 10; /* Menempatkan header di atas konten */
+    position: sticky;
+    top: 0; /* Menambahkan properti top */
+    width: 100%; /* Ensure header covers full width */
+    height: auto; /* Adjust height as needed */
+}
 
 .logo img {
     height: 6.25rem; /* Atur tinggi logo sesuai kebutuhan */

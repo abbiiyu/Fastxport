@@ -61,3 +61,11 @@
   .submit-btn:hover {
     background-color: #567d6f;
   }
+  .form-group textarea {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none; /* Disable resize untuk estetika */
+}

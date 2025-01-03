@@ -1,6 +1,6 @@
 <?php
 // Mengimpor file koneksi database (koneksi.php)
-include('../koneksi.php');
+include('../conn.php');
 
 // Proses ketika form disubmit
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,8 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_address = $_POST['user_address'];
     $password = $_POST['password']; // Ambil password yang dimasukkan user
     $confirm_password = $_POST['confirm_password']; // Ambil konfirmasi password
-    // $role = $_POST['role']; // Ambil konfirmasi password
-    
+
     // Mengecek apakah password dan konfirmasi password sama
     if (trim($password) === trim($confirm_password)) {
         // Password valid, lanjutkan proses penyimpanan data
@@ -25,23 +24,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $last_id = $row['last_id'];
         $new_id = 'ACC-' . str_pad($last_id + 1, 4, '0', STR_PAD_LEFT); // Format ID baru (ACC-0001, ACC-0002, dll.)
 
-        // Mengamankan password sebelum disimpan
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT); // Mengamankan password
-
         // Menyimpan data ke database menggunakan prepared statements untuk keamanan
-        $stmt = $conn->prepare("INSERT INTO login_acc (id_acc, full_name, email, country, phone_number, user_add, password) 
-                               VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssssss", $new_id, $full_name, $email, $country, $phone_number, $user_address, $hashed_password);
+        $stmt = $conn->prepare("INSERT INTO login_acc (id_acc, full_name, email, country, phone_number, user_add, password, role) 
+                               VALUES (?, ?, ?, ?, ?, ?, ?, 'customer')");
+        $stmt->bind_param("sssssss", $new_id, $full_name, $email, $country, $phone_number, $user_address, $password);
         
         if ($stmt->execute()) {
-            // Redirect setelah berhasil (agar form tidak bisa di-submit ulang setelah refresh)
-            header("Location: index.php"); // Ganti 'success_page.php' dengan halaman tujuan setelah sukses
-            exit(); // Menghentikan eksekusi lebih lanjut setelah redirect
+            header("Location: ./login.php"); 
+            exit(); 
         }
         $stmt->close();
     } else {
-        // Jika password tidak cocok, bisa redirect atau tampilkan pesan error
-        header("Location: error_page.php"); // Ganti 'error_page.php' dengan halaman error jika perlu
+        header("Location: error_page.php"); 
         exit();
     }
 }
@@ -79,12 +73,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form action="register.php" method="POST" class="form">
                 <div class="input-box">
                     <p>Country / State</p>
-                    <input class="country" type="text" name="country" placeholder="Enter your country / region" required>
+                    <input id="country" class="country" type="text" name="country" placeholder="Enter your country / region" required>
                 </div>
 
                 <div class="input-box">
                     <p>Email</p>
-                    <input class="email" type="email" name="email" placeholder="Enter your email" required>
+                    <input id="email" class="email" type="email" name="email" placeholder="Enter your email" required>
                 </div>
 
                 <div class="input-box">
@@ -115,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="remember-forgot">
                     <label>
                         <input type="checkbox" name="agree" required>
-                        I agree to the terms and privacy policy. I agree to <br> obtain further information about products and <br> services from Fastxport.
+                        I agree to the terms and privacy policy. I agree to obtain further information about products and services from Fastxport.
                     </label>
                 </div>
 

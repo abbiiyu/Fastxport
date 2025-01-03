@@ -72,6 +72,28 @@ body {
     text-align: center;
 }
 
+.back-home {
+    position: absolute; /* Position it absolutely within the body */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.home-btn {
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.home-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
 .google-btn {
     background-color: #f1f3f4;
     color: #333;

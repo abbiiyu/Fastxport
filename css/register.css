@@ -107,12 +107,13 @@ color: #6A9C89;
     padding-bottom: 60px;
 
 }
-.input-box input[type=text]{
-    text-align: center;
+.input-box input {
+    text-align: left;
     margin-left: 2%;
     box-sizing: border-box;
-    width: 300px; ;
+    width: 300px;
     height: 30px;
+    padding-left: 5px;
 }
 
 .button{
@@ -124,14 +125,13 @@ color: #6A9C89;
 
 .button1{
     width: 130px;
-    height: 30px;
+    height: 35px;
     background-color: #6A9C89;
     color: white;
     padding: 10px 20px;
     cursor: pointer;
     text-decoration: none;
 }
-
 .button1:hover{
     background-color: black;
 }
@@ -156,7 +156,9 @@ color: #6A9C89;
 }
 
 .remember-forgot{
-    padding-top: 20px ;
+    margin-top: 20px ;
     display: flex;
-    margin-left: 43%
+    text-align: center;
+    margin-left: 13%;
+    margin-right:13%;
 }

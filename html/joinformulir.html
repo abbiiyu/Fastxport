@@ -3,39 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joinformulir</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Join as Supplier</title>
     <link rel="stylesheet" href="../css/joinformulir.css">
 </head>
 <body>
     <div class="form-container">
-        <form action="#" method="POST">
-          <div class="form-group">
-            <label for="full-name">Full name</label>
-            <input type="text" id="full-name" name="full-name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="state">County / state</label>
-            <input type="text" id="state" name="state" required>
-          </div>
-          <div class="form-group">
-            <label for="telephone">Telephone</label>
-            <input type="tel" id="telephone" name="telephone" required>
-          </div>
-          <div class="form-group">
-            <label for="store-name">Store name</label>
-            <input type="text" id="store-name" name="store-name" required>
-          </div>
-          <div class="form-group">
-            <label for="address">Address</label>
-            <input type="text" id="address" name="address" required>
-          </div>
-          <button type="button" class="submit-btn" onclick="window.location.href='signsucces.html'">Submit</button>
+        <h1>Join as Supplier</h1>
+        <?php if (isset($error)) : ?>
+             <p style="color:red;"><?= htmlspecialchars($error); ?></p>
+        <?php endif; ?>
+     
+        
+        <form action="joinformulir.php" method="POST">
+          <?php if (!$is_logged_in): ?>
+                <!-- Form untuk user baru -->
+                <div class="form-group">
+                    <label for="full_name">Full Name :</label>
+                    <input type="text" name="full_name" id="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country :</label>
+                    <input type="text" name="country" id="country" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone_number">Phone Number :</label>
+                    <input type="tel" name="phone_number" id="phone_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password :</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" name="confirm_password" id="confirm_password" required>
+                </div>
 
+                <!-- Alamat di bawah konfirmasi password -->
+                <div class="form-group">
+                    <label for="user_add">Address :</label> <!-- New address field -->
+                    <input type="text" name="user_add" id="user_add" required> 
+                </div>
+
+                <?php endif; ?>
+            
+            <!-- Field yang selalu diisi -->
+            <div class="form-group">
+                <label for="shop_name">Shop Name :</label>
+                <input type="text" name="shop_name" id="shop_name" required>
+            </div>
+            <div class="form-group">
+                <label for="bio">Bio :</label>
+                <textarea name="bio" id="bio" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Join</button>
         </form>
     </div>
 </body>

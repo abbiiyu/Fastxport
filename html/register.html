@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up page</title>
-    <link rel="stylesheet" href="../css/register.css">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="../css/registertry.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">
-            <img src="../logo.png" alt="Logo" />
-        </div>
+            <a href="../index.html">
+                <img src="../assets/images/LOGO1.png" alt="Logo" />
+            </a>
+        </div> 
         <ul class="tulisan-navbar">
             <li><a href="product.html">Product</a></li>
             <li><a href="joinassupplier.html">Join as Supplier</a></li>
@@ -20,44 +22,60 @@
         </ul>
         <button class="login-button" onclick="window.location.href='login.html'">Sign In</button>
     </nav>
+
     <div class="coba">
-    <div class="wrapper">
-        <h1>Sign Up</h1>
+        <div class="wrapper">
+            <h1>Sign Up</h1>
+            <!-- Form pendaftaran -->
+            <form action="register.php" method="POST" class="form">
+                
+                <div class="input-box">
+                    <p>Country / State</p>
+                    <input id="country" class="country" type="text" name="country" placeholder="Enter your country / region" required>
+                </div>
 
-        <form action="" class="form">    
-            <div class="input-box">
-            <p>Country / State</p><input class="country" type="text" placeholder="Enter your country / region" required>
-            </div>            
-            <div class="input-box">
-            <p>Email</p><input class="email" type="text" placeholder="Enter your email" required>
-            </div>
-            <div class="input-box">
-            <p>Enter Password   </p><input type="text" placeholder="Enter your password" required>
-            </div>
-            <div class="input-box">
-            <p>Confirm Password </p><input class="confirm" type="text" placeholder="Confirm your password" required>
-            </div>
-            <br>
-            <br>
-            <div class="input-box">
-                <p>full Name</p><input class="name" type="text" placeholder="Enter your full name" required>
-            </div>
-            <div class="input-box">
-                <p>Telp</p><input class="no" type="text" placeholder="Enter your telephone number" required>
-            </div>    
-            <div class="remember-forgot">
-                <label><input type="checkbox">i agree to the terms and privacy policy. i agree to <br> obtain further information about products and <br> services from Fastxport</label>
-                <br>
-                <br>
-            </div>
-            <div class="button">
-                <a href="signsucces.html" class="button1">Submit</a>
-            </div>
-            
-        
-        </form>
+                <div class="input-box">
+                    <p>Email</p>
+                    <input id="email" class="email" type="email" name="email" placeholder="Enter your email" required>
+                </div>
 
-    </div>
+                <div class="input-box">
+                    <p>Enter Password</p>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="input-box">
+                    <p>Confirm Password</p>
+                    <input class="confirm" type="password" name="confirm_password" placeholder="Confirm your password" required>
+                </div>
+
+                <div class="input-box">
+                    <p>Full Name</p>
+                    <input class="name" type="text" name="full_name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="input-box">
+                    <p>Telephone</p>
+                    <input class="no" type="text" name="phone_number" placeholder="Enter your telephone number" required>
+                </div>
+
+                <div class="input-box">
+                    <p>Address</p>
+                    <input class="address" type="text" name="user_address" placeholder="Enter your address" required>
+                </div>
+
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" name="agree" required>
+                        I agree to the terms and privacy policy. I agree to obtain further information about products and services from Fastxport.
+                    </label>
+                </div>
+
+                <!-- Dropdown role -->
+
+                <div class="button">
+                    <button type="submit" class="button1">Submit</button>
+                </div>
+            </form>
+        </div>
     </div> 
-</body>
-</html>

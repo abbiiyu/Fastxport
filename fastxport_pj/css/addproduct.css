@@ -5,8 +5,9 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
     background-color: #E9EFEC;
+
+    height: 100vh;
 }
 header {
     background-color: rgba(106, 156, 137, 0.8); /* Transparansi warna */
@@ -18,8 +19,9 @@ header {
     height: auto; /* Adjust height as needed */
 }
 
-.logo img {
-    height: 6.25rem; /* Atur tinggi logo sesuai kebutuhan */
+.logo img{
+    width: 60%;
+    height: auto; /* Atur tinggi logo sesuai kebutuhan */
     margin-left: 50px; /* Tambahkan jarak antara logo dan menu */
 }
 
@@ -153,17 +155,17 @@ header {
     display: none;
 }
 
-.Add-Product{
+.Add-Product {
     background-color: white;
     padding: 30px;
-    width: 700px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    height: auto;
+    margin: 50px auto; /* Center horizontally and add vertical margin */
+    width: 80%; /* Set a specific width */
+    max-width: 700px; /* Set a maximum width */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 8px; /* Optional: Add border radius */
 }
-
 .Add-Product h1{
     text-align: left;
     color: #6A9C89;

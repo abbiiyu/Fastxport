@@ -29,6 +29,20 @@ if (isset($_POST['login'])) {
                     $_SESSION['user_id'] = $r1['id_acc']; // Store user ID in session
                     $_SESSION['full_name'] = isset($r1['full_name']) ? htmlspecialchars($r1['full_name']) : ""; 
 
+                    // Setelah berhasil login, cek apakah pengguna adalah supplier
+                    // Ambil id_supplier berdasarkan id_acc dari tabel supplier
+                    $sql2 = "SELECT id_supplier FROM supplier WHERE id_acc = ?";
+                    $stmt2 = mysqli_prepare($conn, $sql2);
+                    mysqli_stmt_bind_param($stmt2, 'i', $r1['id_acc']);
+                    mysqli_stmt_execute($stmt2);
+                    $result2 = mysqli_stmt_get_result($stmt2);
+                    $r2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
+
+                    // Set id_supplier in session if exists, otherwise null
+                    $_SESSION['id_supplier'] = isset($r2['id_supplier']) ? $r2['id_supplier'] : null;
+
+                    // Close the statement and redirect to homepage
+                    mysqli_stmt_close($stmt2);
                     mysqli_stmt_close($stmt);
                     mysqli_close($conn);
                     header("Location: ../index.php"); // Redirect to index after login
@@ -42,15 +56,16 @@ if (isset($_POST['login'])) {
         } else {
             echo "<div class='alert alert-danger'>Terjadi kesalahan saat mengambil data</div>";
         }
-        
+
         mysqli_stmt_close($stmt);
     } else {
         die("Query gagal: " . mysqli_error($conn));
     }
-    
+
     mysqli_close($conn);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

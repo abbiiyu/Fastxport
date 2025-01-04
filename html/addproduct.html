@@ -26,8 +26,10 @@
                     <input type="file" id="media" multiple>
                     <span class="icon-plus">+</span>
                     <span class="upload-text">Add file or drag and drop files here</span>
+                    <div id="file-names" class="file-names"></div> <!-- Tempat untuk menampilkan nama file -->
                 </div>
             </div>
+            
 
             <div class="form-row">
                 <label for="price">Price</label>
@@ -58,6 +60,27 @@
         </form>
     </div>
 
+    <script>
+        const fileInput = document.getElementById('media');
+        const fileNamesContainer = document.getElementById('file-names');
+    
+        fileInput.addEventListener('change', function () {
+            // Kosongkan kontainer nama file sebelumnya
+            fileNamesContainer.innerHTML = '';
+    
+            // Ambil file yang dipilih
+            const files = fileInput.files;
+    
+            // Tampilkan nama file di kontainer
+            if (files.length > 0) {
+                for (let i = 0; i < files.length; i++) {
+                    const fileName = document.createElement('div');
+                    fileName.textContent = files[i].name;
+                    fileNamesContainer.appendChild(fileName);
+                }
+            }
+        });
+    </script>
     
 </body>
 </html>

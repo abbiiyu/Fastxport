@@ -97,6 +97,16 @@ select {
     cursor: pointer;
 }
 
+.file-names {
+    margin-top: 10px;
+    color: #4b7168;
+    font-size: 14px;
+    text-align: left;
+}
+.file-names div {
+    margin-bottom: 5px;
+}
+
 .button-container {
     display: flex;
     justify-content: center;

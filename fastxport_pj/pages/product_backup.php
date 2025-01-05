@@ -1,33 +1,18 @@
 <?php
-session_start(); // Start session to manage user login status
+session_start();
+// Check login status
 $isLoggedIn = isset($_SESSION['email']); 
 $role = $isLoggedIn ? $_SESSION['role'] : null; 
 $fullName = $isLoggedIn && isset($_SESSION['full_name']) ? $_SESSION['full_name'] : "Guest"; // Check if full_name exists
-
-// Include database connection
-include '../conn.php'; // Adjust this path based on your directory structure
-
-// Check if connection was successful
-if (!isset($conn)) {
-    die("Database connection failed.");
-}
-
-// Fetch products from the database
-$sql = "SELECT p.id_product, p.product_name, p.description, p.media, p.price, p.stock, p.minBuy, p.category, s.shop_name 
-        FROM product p 
-        JOIN supplier s ON p.id_supplier = s.id_supplier"; // Use shop_name instead of supplier_name
-$result = $conn->query($sql);
-
-// Start HTML output
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=width=device-width, initial-scale=1.0">
     <title>Product</title>
-    <link rel="stylesheet" href="../css/product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/product.css">
 </head>
 <body>
     <header>
@@ -76,22 +61,78 @@ $result = $conn->query($sql);
         <button class="filter-btn">
           <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/filter.png" alt="Filter icon">
         </button>
-    </div>
+      </div>
 
     <div class="product-grid">
-        <?php if ($result && $result->num_rows > 0): ?>
-            <?php while ($row = $result->fetch_assoc()): ?>
-                <a href="productDetail.php?id=<?php echo $row['id_product']; ?>" class="product-isi">
-                    <img src="data:image/jpeg;base64,<?php echo htmlspecialchars($row['media']); ?>" alt="gambar produk" class="product-image">
-                    <h1 class="farmer-name"><?php echo htmlspecialchars($row['shop_name']); ?></h1> <!-- Use shop_name -->
-                    <p class="product-title"><?php echo htmlspecialchars($row['product_name']); ?></p>
-                    <p class="product-price">Rp.<?php echo number_format($row['price'], 0, ',', '.'); ?>/kg</p>
-                    <p class="asal-product"><?php echo htmlspecialchars($row['category']); ?></p>
-                </a>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <p>No products found.</p>
-        <?php endif; ?>
+
+        <a href="productDetail.php" class="product-isi">
+            <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
+            <h1 class="farmer-name">Ters Farmer</h1>
+            <p class="product-title">Cabe merah banget</p>
+            <p class="product-price">Rp.23.000/kg</p>
+            <p class="min-order">min order 10</p>
+            <p class="asal-product">Jawa Barat</p>
+        </a>
+        
+
+        <a href="productDetail.php" class="product-isi">
+            <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
+            <h1 class="farmer-name">Ters Farmer</h1>
+            <p class="product-title">Cabe merah banget</p>
+            <p class="product-price">Rp.23.000/kg</p>
+            <p class="min-order">min order 10</p>
+            <p class="asal-product">Jawa Barat</p>
+        </a>
+        <a href="productDetail.php" class="product-isi">
+            <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
+            <h1 class="farmer-name">Ters Farmer</h1>
+            <p class="product-title">Cabe merah banget</p>
+            <p class="product-price">Rp.23.000/kg</p>
+            <p class="min-order">min order 10</p>
+            <p class="asal-product">Jawa Barat</p>
+        </a>
+        <a href="productDetail.php" class="product-isi">
+            <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
+            <h1 class="farmer-name">Ters Farmer</h1>
+            <p class="product-title">Cabe merah banget</p>
+            <p class="product-price">Rp.23.000/kg</p>
+            <p class="min-order">min order 10</p>
+            <p class="asal-product">Jawa Barat</p>
+        </a>
+        <a href="productDetail.php" class="product-isi">
+            <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
+            <h1 class="farmer-name">Ters Farmer</h1>
+            <p class="product-title">Cabe merah banget</p>
+            <p class="product-price">Rp.23.000/kg</p>
+            <p class="min-order">min order 10</p>
+            <p class="asal-product">Jawa Barat</p>
+        </a>
+        <a href="productDetail.php" class="product-isi">
+            <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
+            <h1 class="farmer-name">Ters Farmer</h1>
+            <p class="product-title">Cabe merah banget</p>
+            <p class="product-price">Rp.23.000/kg</p>
+            <p class="min-order">min order 10</p>
+            <p class="asal-product">Jawa Barat</p>
+        </a>
+
+        <a href="productDetail.php" class="product-isi">
+            <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
+            <h1 class="farmer-name">Ters Farmer</h1>
+            <p class="product-title">Cabe merah banget</p>
+            <p class="product-price">Rp.23.000/kg</p>
+            <p class="min-order">min order 10</p>
+            <p class="asal-product">Jawa Barat</p>
+        </a>
+
+        <a href="productDetail.php" class="product-isi">
+            <img src="../assets/images/cabe.jpg" alt="gambar produk" class="product-image">
+            <h1 class="farmer-name">Ters Farmer</h1>
+            <p class="product-title">Cabe merah banget</p>
+            <p class="product-price">Rp.23.000/kg</p>
+            <p class="min-order">min order 10</p>
+            <p class="asal-product">Jawa Barat</p>
+        </a>
     </div>
 
     <div class="filter">
@@ -99,39 +140,46 @@ $result = $conn->query($sql);
             <ul>
                 <h2>Category</h2>
                 <ul>
-                    <li class="Pertanian-button">
+                    <li class="beans-button">
                         <label class="checkbox-container">
                             <input type="checkbox" class="single-checkbox">
                             <span class="checkmark"></span>
-                            <a href="#">Pertanian</a>
+                            <a href="#">Beans</a>
                         </label>
                     </li>
-                    <li class="Perkebunan-button">
+                    <li class="Food-button">
                         <label class="checkbox-container">
                             <input type="checkbox" class="single-checkbox">
                             <span class="checkmark"></span>
-                            <a href="#">Perkebunan</a>
+                            <a href="#">Food Ingredients</a>
                         </label>
                     </li>
-                    <li class="Perhutanan-button">
+                    <li class="Fruit-button">
                         <label class="checkbox-container">
                             <input type="checkbox" class="single-checkbox">
                             <span class="checkmark"></span>
-                            <a href="#">Perhutanan</a>
+                            <a href="#">Fruit</a>
                         </label>
                     </li>
-                    <li class="Perikanan-button">
+                    <li class="Grains-button">
                         <label class="checkbox-container">
                             <input type="checkbox" class="single-checkbox">
                             <span class="checkmark"></span>
-                            <a href="#">Perikanan</a>
+                            <a href="#">Grains</a>
                         </label>
                     </li>
-                    <li class="Perternakan-button">
+                    <li class="Leaves-button">
                         <label class="checkbox-container">
                             <input type="checkbox" class="single-checkbox">
                             <span class="checkmark"></span>
-                            <a href="#">Perternakan</a>
+                            <a href="#">Leaves</a>
+                        </label>
+                    </li>
+                    <li class="Vegetables-button">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="single-checkbox">
+                            <span class="checkmark"></span>
+                            <a href="#">Vegetables</a>
                         </label>
                     </li>
                 </ul>
@@ -150,32 +198,36 @@ $result = $conn->query($sql);
                         });
                     });
                 </script>
-
-        <div class="filter1">
-            <div class="Price">
-                <h2>Price</h2>
-                <input type="number" placeholder="Min" class="Min-search">
-                <input type="number" placeholder="Min" class="Max-search">
-                <br>
-
-            </div>
-            <div class="location">
-                <h2>Location</h2>
-                <input type="text" placeholder="Lokasi.." class="location-search">
-                <br>
-            </div>
-            </div>
+        <div class="Price">
+            <h2>Price</h2>
+            <input type="number" placeholder="Min" class="Min-search">
+            <input type="number" placeholder="Min" class="Max-search">
+            <br>
             <button class="search-price">Search</button>
         </div>
-    </div>
+        <div class="Min-Order">
+            <h2>Min Order</h2>
+            <input type="number" placeholder="Min.Order" class="Minorder-search">
+            <br>
+            <button class="search-price">Search</button>
+        </div>
+        <div class="location">
+            <h2>Location</h2>
+            <input type="text" placeholder="Lokasi.." class="location-search">
+            <br>
+            <button class="search-price">Search</button>
+        </div>
 
+        </div>
+    </div>
+    
     <footer>
         <div class="kontainer">
             <div class="footer-content contact-section">
                 <h3>Contact Us</h3>
-                <p>Email: info@example.com</p>
-                <p>Phone: +62 812XXXXXXXX</p>
-                <p>Address: Our address company</p>
+                <p>Email:info@example.com</p>
+                <p>Phone:+62 812XXXXXXXX</p>
+                <P>Address:Our address company</p>
             </div>
             <div class="footer-content follow-section">
                 <h3>Follow Us</h3>
@@ -190,10 +242,9 @@ $result = $conn->query($sql);
             <p>&copy; 2024 FastXport. All rights reserved</p>
         </div>
     </footer>
+    
 
+</div>
+      
 </body>
 </html>
-
-<?php
-$conn->close(); // Close the database connection at the end of the script
-?>

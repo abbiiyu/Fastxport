@@ -22,7 +22,8 @@ header {
 }
 
 .logo img {
-    height: 6.25rem; /* Atur tinggi logo sesuai kebutuhan */
+    width: 60%;
+    height: auto;
     margin-left: 50px; /* Tambahkan jarak antara logo dan menu */
 }
 

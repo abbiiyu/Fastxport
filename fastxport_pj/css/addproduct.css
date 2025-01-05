@@ -243,6 +243,36 @@ select {
     cursor: pointer;
 }
 
+#preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.preview-image {
+    width: 100px; /* Batas maksimal lebar */
+    height: 100px; /* Batas maksimal tinggi */
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.file-names {
+    margin-top: 10px;
+    color: #4b7168;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}
+
+.file-names div {
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .button-container {
     display: flex;
     justify-content: center;

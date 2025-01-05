@@ -7,6 +7,7 @@
 body {
     background-color:  #E9EFEC ;
     height: 100vh;
+    min-height: 50rem;
     
 }
 
@@ -21,7 +22,8 @@ header {
 }
 
 .logo img {
-    height: 6.25rem; /* Atur tinggi logo sesuai kebutuhan */
+    width: 60%;
+    height: auto; /* Atur tinggi logo sesuai kebutuhan */
     margin-left: 50px; /* Tambahkan jarak antara logo dan menu */
 }
 
@@ -235,8 +237,8 @@ header {
 }
   
 .product-image {
-    width: 100%;
-    height: auto;
+    width: 180px;
+    height: 150px;
     border-radius: 8px;
     margin-bottom: 10px;
 }
@@ -285,26 +287,25 @@ header {
     border-radius: 10px;
 }
 
-.category, .Price, .Min-Order, .location{
+.category, .Price, .location{
    color: #6A9C89; 
    margin-bottom: 20px;
 
 }
 
-.category h2, .Price h2, .Min-Order h2, .location h2{
+.category h2, .Price h2,.location h2{
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
 
  }
 
-
-.beans-button, .Food-button, .Fruit-button, .Grains-button, .Leaves-button, .Vegetables-button{
+.Pertanian-button, .Perkebunan-button, .Perhutanan-button, .Perikanan-button, .Perternakan-button{                   
     color: #6A9C89;
     font-size: 12px;
     margin-top: 3px;
 }
 
-.beans-button a,.Food-button a, .Fruit-button a, .Grains-button a, .Leaves-button a, .Vegetables-button a {
+.Pertanian-button a, .Perkebunan-button a, .Perhutanan-button a, .Perikanan-button a, .Perternakan-button a{         
     text-decoration: none; 
     color: #508D4E;
     font-family: Arial, Helvetica, sans-serif;
@@ -327,7 +328,7 @@ header {
     color: white;
 }
 
-.Minorder-search, .location-search{
+.location-search{
     width: 190px;
     border: 1px solid #6A9C89;
     padding: 5px;
@@ -337,8 +338,8 @@ header {
 }
 
 ul {
-    list-style-type: none; /* Menghapus bullet point */
-    padding: 0; /* Menghapus padding default */
+    list-style-type: none; 
+    padding: 0;
 }
 li {
     margin: 10px 0;
@@ -351,7 +352,7 @@ li {
     font-family: Arial, sans-serif;
 }
 
-/* Checkbox kustom */
+
 input[type="checkbox"] {
     display: none;
 }
@@ -367,13 +368,13 @@ input[type="checkbox"] {
     transition: background-color 0.2s ease;
 }
 
-/* Saat checkbox dicentang */
+
 input[type="checkbox"]:checked + .checkmark {
     background-color: #6A9C89;
     border-color: #6A9C89;
 }
 
-/* Centang dalam checkmark */
+
 input[type="checkbox"]:checked + .checkmark::after {
     content: '';
     position: absolute;
@@ -385,12 +386,12 @@ input[type="checkbox"]:checked + .checkmark::after {
     border-radius: 50%;
 }
 
-/* Teks tautan */
 .checkbox-container a {
     text-decoration: none;
     color: #508D4E;
     font-size: 14px;
 }
+
 
 footer{
     background: #6A9C89;

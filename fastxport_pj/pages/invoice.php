@@ -1,3 +1,66 @@
+<?php
+// Ambil data dari URL dan koneksi database
+include '../conn.php'; // Pastikan path-nya sesuai
+
+$productId = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : null;
+$quantity = isset($_GET['qty']) ? intval($_GET['qty']) : 0;
+
+$calculatedTotal = 0;
+$productName = '';
+$price = 0;
+$idSupplier = 0; // Anda perlu mendapatkan ID supplier dari produk yang dipilih
+$idAcc = 0; // Anda perlu mendapatkan ID akun pengguna yang melakukan pembelian
+$idShipment = 1; // Misalnya, Anda menetapkan ID pengiriman. Bisa disesuaikan dengan pilihan pengguna (Regular/Express)
+
+// Validasi data dari URL
+if ($productId && $quantity > 0) {
+    // Ambil nama dan harga produk dari database
+    $stmt = $conn->prepare("SELECT product_name, price, id_supplier FROM product WHERE id_product=?");
+    $stmt->bind_param("s", $productId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows > 0) {
+        $productData = $result->fetch_assoc();
+        $productName = htmlspecialchars($productData['product_name']);
+        $price = floatval($productData['price']);
+        $idSupplier = $productData['id_supplier'];
+
+        // Hitung ulang total
+        $calculatedTotal = $price * $quantity;
+
+        // Mendapatkan ID akun pengguna (pastikan pengguna sudah login)
+        if (isset($_SESSION['id_acc'])) {
+            $idAcc = $_SESSION['id_acc'];
+        }
+
+        // Masukkan data pembelian ke tabel orders
+        if ($idAcc > 0) {
+            $insertSql = "INSERT INTO orders (id_supplier, id_acc, id_product, product_name, total, id_shipment, shipment_category, user_add) 
+                          VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $shipmentCategory = 'Regular'; // Ini bisa diubah sesuai dengan pilihan pengguna
+
+            $userAdd = $_SESSION['address'] ?? ''; // Pastikan alamat pengguna ada di sesi
+
+            $insertStmt = $conn->prepare($insertSql);
+            $insertStmt->bind_param("iiisiiis", $idSupplier, $idAcc, $productId, $productName, $calculatedTotal, $idShipment, $shipmentCategory, $userAdd);
+            $insertStmt->execute();
+
+            if ($insertStmt->affected_rows > 0) {
+                echo "Pembelian berhasil disimpan di database.";
+            } else {
+                echo "Gagal menyimpan data pembelian.";
+            }
+        }
+    } else {
+        $productName = 'Produk tidak ditemukan';
+    }
+} else {
+    $productName = 'Data pembelian tidak valid';
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,62 +97,29 @@
 
         <!-- Menampilkan Rincian Pembelian -->
         <tbody>
-            <?php
-            // Ambil data dari URL
-            include '../conn.php'; // Pastikan path-nya sesuai
-
-            $productId = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : null;
-            $quantity = isset($_GET['qty']) ? intval($_GET['qty']) : 0;
-
-            // Validasi data dari URL
-            if ($productId && $quantity > 0) {
-                // Ambil nama dan harga produk dari database
-                $stmt = $conn->prepare("SELECT product_name, price FROM product WHERE id_product=?");
-                $stmt->bind_param("s", $productId);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                
-                if ($result->num_rows > 0) {
-                    $productData = $result->fetch_assoc();
-                    $productName = htmlspecialchars($productData['product_name']);
-                    $price = floatval($productData['price']); // Harga satuan
-
-                    // Hitung ulang total
-                    $calculatedTotal = $price * $quantity;
-
-                    // Tampilkan data pada tabel
-                    echo "<tr>";
-                    echo "<td>1</td>";
-                    echo "<td>$productName</td>";
-                    echo "<td>$quantity</td>";
-                    echo "<td>Rp " . number_format($price, 2, ',', '.') . "</td>"; // Harga satuan
-                    echo "<td>Rp " . number_format($calculatedTotal, 2, ',', '.') . "</td>"; // Total
-                    echo "</tr>";
-                } else {
-                    echo "<tr><td colspan='5'>Produk tidak ditemukan.</td></tr>";
-                }
-            } else {
-                echo "<tr><td colspan='5'>Data pembelian tidak valid.</td></tr>";
-            }
-            ?>
+            <tr>
+                <td>1</td>
+                <td><?= $productName ?></td>
+                <td><?= $quantity ?></td>
+                <td>Rp <?= number_format($price, 2, ',', '.') ?></td>
+                <td>Rp <?= number_format($calculatedTotal, 2, ',', '.') ?></td>
+            </tr>
         </tbody>
     </table>
 
     <!-- Ringkasan Total -->
     <div class="summary">
-        <!-- Menampilkan total -->
-        <p><strong>Total:</strong> Rp <?= isset($calculatedTotal) ? number_format($calculatedTotal, 2, ',', '.') : '0,00' ?></p> 
+        <p><strong>Total:</strong> Rp <?= number_format($calculatedTotal, 2, ',', '.') ?></p> 
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        <!-- Pesan Terima Kasih -->
         <p>Terima Kasih atas Pembelian Anda!</p> 
     </div>
 
     <!-- Tombol Selesai -->
     <!-- Kembali ke halaman supplier -->
-    <button onclick="window.location.href='supplier.php'">Done</button> 
+    <button onclick="window.location.href='../index.php'">Done</button> 
 </div>
 
 <script>

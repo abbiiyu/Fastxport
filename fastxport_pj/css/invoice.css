@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #6A9C89;
+}
+.invoice-container {
+    width: 1000px;
+    margin: 50px auto;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 80px;
+}
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+.header h1 {
+    font-size: 30px;
+    color: #6A9C89;
+    margin: 0;
+    margin-bottom: 6rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 150px;
+    width: auto;
+    margin-top: -6rem;
+}
+
+.date {
+    font-size: 14px;
+    color: black;
+    text-align: right;
+    margin-top: 10px;
+    font-weight: bold
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid black;
+    padding: 7px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+table th {
+    background-color: #6A9C89;
+    font-weight: bold;
+}
+
+/* Aturan untuk <th> */
+table th:nth-child(1) {
+    text-align: center;
+    width: 0.5%; /* Kolom No */
+}
+
+table th:nth-child(2) {
+    text-align: center;
+    width: 2%; /* Kolom Nama Produk */
+}
+
+table th:nth-child(3) {
+    text-align: center;
+    width: 0.5%; /* Kolom Qty */
+}
+
+table th:nth-child(4) {
+    text-align: center;
+    width: 3%; /* Kolom Harga Satuan */
+}
+
+table th:nth-child(5) {
+    text-align: right;
+    width:3%; /* Kolom Total */
+}
+
+/* Aturan untuk <td> */
+table td:nth-child(1) {
+    text-align: center;
+    width: 0.5%; /* Kolom No */
+}
+
+table td:nth-child(2) {
+    text-align: left;
+    width: 2%; /* Kolom Nama Produk */
+}
+
+table td:nth-child(3) {
+    text-align: center;
+    width: 0,5%; /* Kolom Qty */
+}
+
+table td:nth-child(4) {
+    text-align: right;
+    width: 3%; /* Kolom Harga Satuan */
+}
+
+table td:nth-child(5) {
+    text-align: right;
+    width: 3%; /* Kolom Total */
+}
+
+
+.summary {
+    text-align: right;
+    margin-top: 20px;
+}
+.summary p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #777;
+}
+
+button{
+    background-color: #6A9C89;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 90%;
+}
+
+button:hover {
+    background-color: #5c8a77;
+}

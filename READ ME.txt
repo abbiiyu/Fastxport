@@ -1,3 +1,5 @@
 Masukin folder ini ke dalam folder XAMPP, kemudian buka folder htdocs dan simpan disana.
 Database di import ke php my admin xampp MySQL
 Run program menggunakan http://localhost/direktori lu naro file ini dimana/Fastxport/fastxport_pj/index.php
+contoh gw direktori folder sebenarnya nyimpen file di D:\SoftAw\XAMPP\htdocs\Pemweb\master\Fastxport\fastxport_pj
+tapi dari situ yang perlu lu masukin ke alamat localhostlu di web itu hanya http://localhost/Pemweb/master/Fastxport/fastxport_pj/index.php >> lihat http://localhost/folder_lu/folder_lu/Fastxport/fastxport_pj/index.php kalo g ada ga masalah langsung aja ke http://localhost/Fastxport/fastxport_pj/index.php klo memang lgsg taro di htdocs
